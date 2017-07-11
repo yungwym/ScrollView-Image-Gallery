@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ImageDetailViewController.h"
 
 @interface ViewController () 
 
@@ -27,11 +28,13 @@
     [super viewDidLoad];
     
     [self setupScrollView];
+    
+    
 }
 
 -(void)setupScrollView {
     
-    self.scrollView.delegate = self;
+  //  self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     
     
@@ -75,9 +78,39 @@
     
 }
 
-
-
+- (IBAction)imageTapped:(UITapGestureRecognizer *)sender {
     
+    [self performSegueWithIdentifier:@"segue" sender:sender];
+    
+    NSLog(@"%@", sender);
+    
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"segue"]) {
+        
+        ImageDetailViewController *target = [segue destinationViewController];
+        
+        CGPoint location = [sender locationInView:self.scrollView];
+        int selectedImage = location.x/self.scrollView.frame.size.width;
+        
+        if (selectedImage == 0) {
+            
+            target.imageView.image = self.field.image;
+            
+        } else if (selectedImage == 1) {
+            
+            target.imageView.image = self.night.image;
+            
+        } else {
+            
+            target.imageView.image = self.zoomed.image;
+            
+        }
+    }
+}
 
 
 

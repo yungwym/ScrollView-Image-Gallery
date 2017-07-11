@@ -13,6 +13,7 @@
 		FFFAB2201F13EEF8007662CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFAB21E1F13EEF8007662CA /* Main.storyboard */; };
 		FFFAB2221F13EEF8007662CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFFAB2211F13EEF8007662CA /* Assets.xcassets */; };
 		FFFAB2251F13EEF8007662CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFAB2231F13EEF8007662CA /* LaunchScreen.storyboard */; };
+		FFFAB2511F1432D9007662CA /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFAB2501F1432D9007662CA /* ImageDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		FFFAB2211F13EEF8007662CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFFAB2241F13EEF8007662CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFFAB2261F13EEF8007662CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFFAB24F1F1432D9007662CA /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
+		FFFAB2501F1432D9007662CA /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				FFFAB2191F13EEF8007662CA /* AppDelegate.m */,
 				FFFAB21B1F13EEF8007662CA /* ViewController.h */,
 				FFFAB21C1F13EEF8007662CA /* ViewController.m */,
+				FFFAB24F1F1432D9007662CA /* ImageDetailViewController.h */,
+				FFFAB2501F1432D9007662CA /* ImageDetailViewController.m */,
 				FFFAB21E1F13EEF8007662CA /* Main.storyboard */,
 				FFFAB2211F13EEF8007662CA /* Assets.xcassets */,
 				FFFAB2231F13EEF8007662CA /* LaunchScreen.storyboard */,
@@ -154,6 +159,7 @@
 				FFFAB21D1F13EEF8007662CA /* ViewController.m in Sources */,
 				FFFAB21A1F13EEF8007662CA /* AppDelegate.m in Sources */,
 				FFFAB2171F13EEF8007662CA /* main.m in Sources */,
+				FFFAB2511F1432D9007662CA /* ImageDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
