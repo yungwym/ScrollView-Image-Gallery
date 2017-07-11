@@ -11,7 +11,7 @@
 @interface ImageDetailViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 
 
@@ -21,7 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Detail Gallery";
    
+    self.imageView.image = self.detailImage; 
+    
     self.scrollView.minimumZoomScale = 0.2;
     self.scrollView.maximumZoomScale = 2.0;
     

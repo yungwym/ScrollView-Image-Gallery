@@ -9,10 +9,11 @@
 #import "ViewController.h"
 #import "ImageDetailViewController.h"
 
-@interface ViewController () 
+@interface ViewController () <UIScrollViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic) UIPageControl *pc;
 
 @property (nonatomic) UIImageView *field;
 @property (nonatomic) UIImageView *night;
@@ -27,8 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupScrollView];
+    self.title = @"Main Gallery"; 
     
+    [self setupScrollView];
+    [self setUpPageControl];
+    self.scrollView.delegate = self; 
     
 }
 
@@ -83,7 +87,6 @@
     [self performSegueWithIdentifier:@"segue" sender:sender];
     
     NSLog(@"%@", sender);
-    
 }
 
 
@@ -91,27 +94,47 @@
     
     if ([segue.identifier isEqualToString:@"segue"]) {
         
-        ImageDetailViewController *target = [segue destinationViewController];
+        ImageDetailViewController *target = segue.destinationViewController;
         
         CGPoint location = [sender locationInView:self.scrollView];
         int selectedImage = location.x/self.scrollView.frame.size.width;
         
         if (selectedImage == 0) {
             
-            target.imageView.image = self.field.image;
+            target.detailImage = self.field.image;
             
         } else if (selectedImage == 1) {
             
-            target.imageView.image = self.night.image;
+            target.detailImage = self.night.image;
             
         } else {
             
-            target.imageView.image = self.zoomed.image;
+            target.detailImage = self.zoomed.image;
             
         }
     }
 }
 
+
+-(void)setUpPageControl {
+    
+    self.pc = [UIPageControl new];
+    [self.view addSubview:self.pc];
+    [self.view bringSubviewToFront:self.pc];
+    self.pc.backgroundColor = [UIColor blackColor];
+    self.pc.alpha = 0.5;
+    self.pc.numberOfPages = 3;
+    
+    CGRect frame = CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50.0);
+    
+    self.pc.frame = frame;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int currentPage = (int)self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
+    self.pc.currentPage = currentPage;
+}
 
 
 @end
